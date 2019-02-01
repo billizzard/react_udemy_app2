@@ -23,8 +23,6 @@ class Header extends Component {
                 <input type="text"
                 onChange={this.inputChangeHandler}
                 />
-                <div>{this.state.title}</div>
-                <div>{this.state.keywords}</div>
             </header>
         );
     }

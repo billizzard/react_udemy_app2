@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Header = () => {
+const NewsItem = ({item}) => {
     return (
         <div>
-            Header
+            <h3>{item.title}</h3>
+            <div>
+                {item.feed}
+            </div>
         </div>
     )
 }
 
-export default Header;
+export default NewsItem

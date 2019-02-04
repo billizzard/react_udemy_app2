@@ -2,13 +2,30 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Posts = () => {
-    return (
-        <div>
-            <Link to='/posts/1'>post 1</Link><br/>
-            <Link to='/posts/2'>post 2</Link><br/>
-            <Link to='/posts/3'>post 3</Link>
-        </div>
-    )
+    // const ids = [
+    //     {id: '1', name: 'post 1'},
+    //     {id: '2', name: 'post 2'},
+    //     {id: '3', name: 'post 3'},
+    // ]
+    //
+    // const list = ids.map(item => {
+    //     return (
+    //         <span key={item.id}>
+    //             <Link to={item.id}>{item.name}</Link><br/>
+    //         </span>
+    //     )
+    // })
+    //
+    // return (
+    //     <div>
+    //         {list}
+    //     </div>
+    // )
+    return [
+        "Hello ",
+        " i am ",
+        " react ",
+    ]
 }
 
 export default Posts;

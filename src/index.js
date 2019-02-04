@@ -1,47 +1,36 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-
-import JSON from './db.json'
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 // COMPONENTS
-import Header from './components/header'
-import NewsList from './components/news_list'
+import Home from './components/home'
+import Posts from './components/posts'
+import Profile from './components/profiles'
 
-class App extends Component {
-    state = {
-        news: JSON,
-        filtered:[]
-    }
 
-    getKeyword = (event) => {
-        //console.log(event.target.value);
-        let keyword = event.target.value;
-
-        let filtered = this.state.news.filter((item) => {
-            return item.title.indexOf(keyword) > -1;
-        })
-
-        this.setState({
-            filtered: filtered
-        })
-    }
-
-    render() {
-        let newsFiltere = this.state.filtered;
-        let newsWhole = this.state.news;
-
-        return (
+const App = () => {
+    return (
+        <BrowserRouter>
             <div>
-                <Header keywords={this.getKeyword}/>
-                <NewsList news={newsFiltere.length === 0 ? newsWhole : newsFiltere}/>
+                <header>
+                    <Link to='/'>Home</Link><br/>
+                    <Link to='/posts'>Posts</Link><br/>
+                    <Link to={{
+                        pathname: '/profile',
+                        // hash: '#yes',
+                        // search: '?profile=true'
+                    }}>Profile</Link><br/>
+                    <hr/>
+                </header>
+                <Route path='/' exact component={Home}/>
+                <Route path='/posts' component={Posts}/>
+                <Route path='/profile' component={Profile}/>
             </div>
-        )
-    }
+        </BrowserRouter>
+    )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-
+ReactDOM.render(
+    <App/>,
+    document.querySelector('#root')
+)

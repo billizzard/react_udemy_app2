@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import Card from '../hoc/card'
+import Auth from '../hoc/auth'
 
 const Profile = (props) => {
     const redir = () => {
@@ -10,13 +12,13 @@ const Profile = (props) => {
     }
 
     return (
-        <div>
-            <Link to={{
-                pathname: `${props.match.url}/posts`
-            }}>go to posts</Link>
-
-            {redir()}
-        </div>
+        <Auth>
+            <Card>
+                <Link to={{
+                    pathname: `${props.match.url}/posts`
+                }}>go to posts</Link>
+            </Card>
+        </Auth>
     )
 }
 

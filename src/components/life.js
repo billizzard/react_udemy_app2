@@ -13,11 +13,39 @@ class Life extends Component{
         console.log('3 before render');
     }
 
+    componentWillUpdate() {
+        console.log('BEFORE UPDATE');
+    }
+    
+    componentWillUnmount() {
+        console.log('WILL UNMOUNT');
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('AFTER UPDATE');
+    }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log(this.state.title);
+        console.log(nextState.title);
+        return true;
+    }
+    
+    componentWillReceiveProps(nextProps, nextContext) {
+        console.log('BEFORE RECIEVE PROPS');
+    }
+
     // 4 render jsx
     render() {
+        console.log('RENDER ');
         return (
             <div>
                 <h3>{this.state.title}</h3>
+                <div onClick={
+                    () => this.setState({
+                        title: 'something else'
+                    })
+                }>CLICK ON CHANGE</div>
             </div>
         )
     }

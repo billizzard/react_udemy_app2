@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Link, NavLink} from 'react-router-dom';
+import {BrowserRouter, Route, Link, NavLink, Switch} from 'react-router-dom';
 
 // COMPONENTS
 import Home from './components/home'
@@ -24,10 +24,13 @@ const App = () => {
                     <NavLink to='/profile'>Profile</NavLink><br/>
                     <hr/>
                 </header>
-                <Route path='/' exact component={Home}/>
-                <Route path='/posts' component={Posts}/>
-                <Route path='/posts/:id/:username' component={PostItem}/>
-                <Route path='/profile' component={Profile}/>
+                <Switch>
+                    <Route path='/posts/:id/:username' component={PostItem}/>
+                    <Route path='/posts' component={Posts}/>
+                    <Route path='/profile' component={Profile}/>
+                    <Route path='/' component={Home}/>
+                </Switch>
+
             </div>
         </BrowserRouter>
     )

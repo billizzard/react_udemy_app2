@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
-class Life extends Component{
+class Life extends PureComponent{
     // 1 get default props
 
     // 2 set default state
@@ -9,31 +9,33 @@ class Life extends Component{
     }
 
     // 3 before render
-    componentWillMount() {
-        console.log('3 before render');
-    }
-
-    componentWillUpdate() {
-        console.log('BEFORE UPDATE');
-    }
-    
-    componentWillUnmount() {
-        console.log('WILL UNMOUNT');
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('AFTER UPDATE');
-    }
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log(this.state.title);
-        console.log(nextState.title);
-        return true;
-    }
-    
-    componentWillReceiveProps(nextProps, nextContext) {
-        console.log('BEFORE RECIEVE PROPS');
-    }
+    // componentWillMount() {
+    //     console.log('3 before render');
+    // }
+    //
+    // componentWillUpdate() {
+    //     console.log('BEFORE UPDATE');
+    // }
+    //
+    // componentWillUnmount() {
+    //     console.log('WILL UNMOUNT');
+    // }
+    //
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     console.log('AFTER UPDATE');
+    // }
+    //
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     if (nextState.title === this.state.title) {
+    //         return false;
+    //     }
+    //
+    //     return true;
+    // }
+    //
+    // componentWillReceiveProps(nextProps, nextContext) {
+    //     console.log('BEFORE RECIEVE PROPS');
+    // }
 
     // 4 render jsx
     render() {
@@ -51,9 +53,9 @@ class Life extends Component{
     }
 
     // 5 after render
-    componentDidMount() {
-        console.log('5 after render');
-    }
+    // componentDidMount() {
+    //     console.log('5 after render');
+    // }
 }
 
 export default Life;
